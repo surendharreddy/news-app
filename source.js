@@ -1,17 +1,21 @@
 var axios = require('axios');
 
-var API_Key = '22aef971353b44d68cf90deeec503138';
-
 var news = { 
-          getNews: function(source){
-               return axios.get(`https://newsapi.org/v1/articles?source=${source}&sortBy=top&apiKey=${API_Key}`)
+          getNews: function(source, apikey){
+               return axios.get(`https://newsapi.org/v1/articles?source=${source}&sortBy=top&apiKey=${apikey}`)
                     .then(function (response) {
                       const { data } = response
                       var todayNews = data.articles
-                      console.log(todayNews)
+
+                      for (var i=0; i< todayNews.length; i++) {
+                          console.log('--------','\n',
+                                    'Title:', todayNews[i].title,'\n',
+                                    'Description:', todayNews[i].description,'\n', 
+                                    '--------','\n')
+                      }
                     })
                     .catch(function (error) {
-                      console.log(error);
+                      console.log('Please check your source and API key');
                     });
                   }                
             }
