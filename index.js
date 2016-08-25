@@ -35,13 +35,15 @@ prompt.start();
 
 prompt.get(['source', 'API_Key'], function (err, result) {
                 if (err) { return onErr(err); }
-                  console.log('Getting news for:', result.source)
+                  console.log('Getting news for:', result.source, '\n')
                   news.getNews(result.source, result.API_Key)
               });
 
               function onErr(err) {
-                  console.log('\n\n\n\n','Thanks,Come back for great news!');
+                  console.log('\n\n\n\n','Thanks,Come back for great news!', emoji.get('wave') );
                   return 1;
               }
+
+              
 
 

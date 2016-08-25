@@ -1,4 +1,5 @@
 var axios = require('axios');
+var emoji = require('node-emoji');
 
 var news = { 
           getNews: function(source, apikey){
@@ -8,14 +9,14 @@ var news = {
                       var todayNews = data.articles
 
                       for (var i=0; i< todayNews.length; i++) {
-                          console.log('--------','\n',
+                          console.log(' --------','\n',
                                     'Title:', todayNews[i].title,'\n',
                                     'Description:', todayNews[i].description,'\n', 
                                     '--------','\n')
                       }
                     })
                     .catch(function (error) {
-                      console.log('Please check your source and API key');
+                      console.log('Please check your source and API key', emoji.get('neutral_face'));
                     });
                   }                
             }
