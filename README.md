@@ -1,4 +1,4 @@
-## Terminal-News-App built 
+## Terminal-News-App 
 
 A simple node app to get news on your terminal. 
 
